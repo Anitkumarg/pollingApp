@@ -1,0 +1,28 @@
+<div class="loginContainer">
+  <h1 class="header">Register</h1>
+  <form class="formtag" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="inputContainer">
+      <label class="inputLabel">User Name</label>
+      <input type="text" class="inputField" formControlName="userName" />
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel">Password</label>
+      <input type="text" class="inputField" formControlName="password" />
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel">Role</label>
+      <select class="inputField" formControlName="role">
+        <option value="admin">Admin</option>
+        <option value="guest">Guest</option>
+      </select>
+    </div>
+
+    <button type="submit" class="loginButton">sign up</button>
+  </form>
+
+  <div class="notAccountcontainer">
+  <p class="para">already have an account? <span class="signupspan" (click)="navigateTo()">log in</span></p>  
+  <div>
+</div>

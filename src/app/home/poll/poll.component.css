@@ -1,0 +1,87 @@
+.pollContainer{
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: 1px solid #e5edf7;
+    border-radius: 10px;
+    background: #e2edf8;
+    width: 40%;
+}
+.title{
+  padding: 10px;
+}
+.optionsContainer{
+  background-color: #ccc;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.titleContainer{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.edit-button{
+    padding: 8px 15px;
+    color: #fff;
+    background-color: #30b36c;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+}
+.delete-button{
+    padding: 8px 15px;
+    color: #fff;
+    background-color: #F06534;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+}
+.addOption{
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #1173c5;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  margin-top: 20px;
+}
+.inputField{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  color: #2c2a2a;
+  width: 100%;
+}
+.inputField:focus{
+  outline: none;
+}
+.loginButton{
+  padding: 12px;
+  background-color: #1173c5;
+  margin-top: 12px;
+  color: #fff;
+  border: 1px solid #1173c5;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 40px;
+}
+.loginButton:hover{
+  color: #1173c5;
+  background-color: #fff;
+}
+
+.addnewoptioncontainer{
+  margin-top: 10px;
+}

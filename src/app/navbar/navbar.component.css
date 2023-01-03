@@ -1,0 +1,33 @@
+.navContainer{
+  background-color: #1173c5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar{
+  display: flex;
+  list-style: none;
+}
+.navitem{
+  padding: 25px;
+  color: #fff;
+  text-decoration: none;
+}
+.navitem:hover{
+  background-color: #e2edf8;
+  color: #F06534;
+  font-weight: 700;
+}
+
+.active{
+  background-color: #e2edf8;
+  color: #F06534;
+  font-weight: 700;
+}
+.app{
+  color: #F06534;
+}
+.navtitle{
+  color: #fefefe;
+  font-weight: 900;
+}

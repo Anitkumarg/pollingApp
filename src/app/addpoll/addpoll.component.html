@@ -1,0 +1,29 @@
+<div *ngIf="successmsg" class="loginContainer"><p>{{successmsg}}</p></div>
+<div class="loginContainer">
+  <h1 class="header">Add Poll Here</h1>
+  <form class="formtag" [formGroup] = "checkoutForm" (submit)="onSubmit()">
+    <div class="inputContainer">
+      <label class="inputLabel">Title</label>
+      <input type="text" class="inputField" formControlName="title" />
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel">option 1</label>
+      <input type="text" class="inputField" formControlName="opt1" />
+    </div>
+    <div class="inputContainer">
+      <label class="inputLabel">option 2</label>
+      <input type="text" class="inputField" formControlName="opt2" />
+    </div>
+    <div class="inputContainer">
+      <label class="inputLabel">option 3</label>
+      <input type="text" class="inputField" formControlName="opt3" />
+    </div>
+    <div class="inputContainer">
+      <label class="inputLabel">option 4</label>
+      <input type="text" class="inputField" formControlName="opt4" />
+    </div>
+
+    <button type="submit" class="loginButton" >{{!loading ? "add poll" : "please wait..."}}</button>
+  </form>
+</div>

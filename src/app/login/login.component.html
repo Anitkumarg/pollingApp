@@ -1,0 +1,21 @@
+<div class="loginContainer">
+  <h1 class="header">Login</h1>
+  <h3 *ngIf="err">something went wrong</h3>
+  <form class="formtag" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="inputContainer">
+      <label class="inputLabel">User Name</label>
+      <input type="text" class="inputField" formControlName="userName" />
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel">Password</label>
+      <input type="text" class="inputField" formControlName="password" />
+    </div>
+
+    <button type="submit" class="loginButton" >{{!loading ? "Login" : "loading..."}}</button>
+  </form>
+
+  <div class="notAccountcontainer">
+  <p class="para">don't have an account? <span class="signupspan" (click)="navigateTo()">sign up</span></p>  
+  <div>
+</div>
