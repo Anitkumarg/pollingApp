@@ -10,25 +10,26 @@ import { AppserviceService } from '../service/appservice.service';
 })
 export class RegisterUserComponent {
 
-constructor(private route : Router , private formBuilder : FormBuilder , private formsubmit : AppserviceService){}
+  constructor(private route : Router , private formBuilder : FormBuilder , private formsubmit : AppserviceService){}
 
-checkoutForm = this.formBuilder.group({
-  userName: '',
-  role:'',
-  password: ''
-});
+  checkoutForm = this.formBuilder.group({
+    userName: '',
+    role:'',
+    password: ''
+  });
 
-onSubmit(){
-  const {
-    userName,
-    role,
-    password
-  } = this.checkoutForm.value
-  this.formsubmit.addUser({"userName" : userName, "password": password, "role":role})
-  this.checkoutForm.reset();
-}
+  onSubmit(){
+    const {
+      userName,
+      role,
+      password
+    } = this.checkoutForm.value
+    this.formsubmit.addUser({"userName" : userName, "password": password, "role":role})
+    this.checkoutForm.reset();
+  }
 
   navigateTo(){
     this.route.navigate(['login'])
   }
+
 }

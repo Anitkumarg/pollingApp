@@ -8,6 +8,7 @@
   top: 50%;
   transform: translate(-50% , -50%);
 }
+
 .header{
   text-align: center;
   font-size: 35px;
@@ -21,8 +22,8 @@
 }
 
 .inputLabel{
-color: #2c2a2a;
-margin-bottom: 10px;
+  color: #2c2a2a;
+  margin-bottom: 10px;
 }
 
 .inputField{
@@ -32,9 +33,11 @@ margin-bottom: 10px;
   font-size: 20px;
   color: #2c2a2a;
 }
+
 .inputField:focus{
   outline: none;
 }
+
 .loginButton{
   width: 100%;
   padding: 12px;
@@ -46,10 +49,12 @@ margin-bottom: 10px;
   font-size: 16px;
   cursor: pointer;
 }
+
 .loginButton:hover{
   color: #4545E2;
   background-color: #fff;
 }
+
 .notAccountcontainer{
   text-align: center;
   margin-top: 10px;
@@ -70,7 +75,8 @@ margin-bottom: 10px;
 /* media query */
 
 @media screen and (max-width:1000px ) {
-    .loginContainer{
-      width: 80%;
-    }
+  .loginContainer{
+    width: 80%;
+  }
+  
 }

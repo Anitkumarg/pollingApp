@@ -1,35 +1,40 @@
 import { Component, Input } from '@angular/core';
 import { AppserviceService } from 'src/app/service/appservice.service';
-import { pollList } from '../home.component';
 
 @Component({
   selector: 'app-poll',
   templateUrl: './poll.component.html',
   styleUrls: ['./poll.component.css']
 })
+
 export class PollComponent {
 
-  @Input() poll :any= {}
+  pollList: any = [];
   isAddNewOption : boolean = false
   isTitleEdit : boolean = false
   newOptionValue : string = ""
   newTitleValue : string = ""
   editOptionValue : string = ""
 
-  constructor(private handlePoll : AppserviceService){}
+  constructor(private handlePoll : AppserviceService , private getpollListservice: AppserviceService){}
 
-
-
-  handlePollDelete(){
-    this.handlePoll.deletePoll(this.poll._id)
+  ngOnInit() : void {
+  this.getpollList();
   }
 
-  handleOptionDelete(option : string){
-    this.handlePoll.deletePollOption(this.poll._id , option)
+  async handlePollDelete(id: any){
+    await this.handlePoll.deletePoll(id)
+    this.getpollList();
+  }
+
+  async handleOptionDelete(id : any , option : string){
+    await this.handlePoll.deletePollOption(id , option)
+    this.getpollList();
   }
 
   handleAddNewOption(){
     this.isAddNewOption = true
+    this.getpollList();
   }
 
   handleChange(e:Event , keys:string){
@@ -43,29 +48,37 @@ export class PollComponent {
     
   }
 
-  async addNewOption(){
+  async addNewOption(id : any){
     if(this.newOptionValue){
-      const data = await this.handlePoll.addNewPollOption(this.poll._id , this.newOptionValue)
+      const data = await this.handlePoll.addNewPollOption(id , this.newOptionValue)
       if(data.error == 0){
         this.isAddNewOption = false;
         this.newOptionValue = "";
       }
+    this.getpollList();
     }
   }
 
-  async handleEditTitle(){
+  async getpollList() {
+    const data = await this.getpollListservice.getPollList();
+    this.pollList = data.data
+    console.log(this.pollList)
+  }
+
+  async handleEditTitle(id : any){
     this.isTitleEdit = true;
       if(this.newTitleValue){
-        const data = await this.handlePoll.updatePollTitle(this.poll._id , this.newTitleValue)
+        const data = await this.handlePoll.updatePollTitle(id , this.newTitleValue)
         if(data.error == 0){
           this.newTitleValue = "";
           this.isTitleEdit=false;
         }
       } 
+    this.getpollList();
   }
 
-  async doVote(option : string){
-    const data = await this.handlePoll.createVote(this.poll._id , option)
+  async doVote(id : any , option : string){
+    const data = await this.handlePoll.createVote(id , option)
   }
 
 }

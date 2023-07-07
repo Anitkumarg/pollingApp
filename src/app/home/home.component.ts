@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppserviceService } from '../service/appservice.service';
+// import { AppserviceService } from '../service/appservice.service';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +7,10 @@ import { AppserviceService } from '../service/appservice.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  pollList = []
-  constructor(private getpollListservice: AppserviceService) {}
-  ngOnInit() {
-    this.getpollList();
-  }
 
-  ngOnChanges(){
-    this.getpollList();
-  }
+  constructor() {}
 
-  async getpollList() {
-    const data = await this.getpollListservice.getPollList();
-    this.pollList = data.data
-  }
+  ngOnInit() { }
 }
 
 export interface pollList {
@@ -31,7 +21,6 @@ export interface pollList {
   _id: string;
   __v: number;
 }
-[];
 
 export interface optionType {
   option: string;

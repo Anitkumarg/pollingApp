@@ -1,32 +1,35 @@
+<div class="pollContainer" *ngFor="let poll of pollList">
 
-<div class="pollContainer">
   <div class="titleContainer">
-  <h2 class="title" *ngIf="!isTitleEdit; else titleContainer">{{poll.title}}</h2>
-  <ng-template #titleContainer>
-    <div class="addnewoptioncontainer">
-      <input type="text" class="inputField" placeholder="write something here..." [ngModel]="newOptionValue" (change)="handleChange($event , 'editTitle')" />
+    <h2 class="title" *ngIf="!isTitleEdit; else titleContainer">{{poll.title}}</h2>
+    <ng-template #titleContainer>
+      <div class="addnewoptioncontainer">
+        <input type="text" class="inputField" placeholder="write something here..." [ngModel]="newOptionValue" (change)="handleChange($event , 'editTitle')" />
+      </div>
+    </ng-template>
+    <div>
+      <button class="edit-button" (click)="handleEditTitle(poll._id)">{{!isTitleEdit ? 'edit' : 'update'}}</button>
+      <button class="delete-button" (click)="handlePollDelete(poll._id)">delete</button>
     </div>
-  </ng-template>
-  <div>
-  <button class="edit-button" (click)="handleEditTitle()">{{!isTitleEdit ? 'edit' : 'update'}}</button>
-  <button class="delete-button" (click)="handlePollDelete()">delete</button>
-  </div>
   </div>
   
   <div *ngFor="let item of poll.options" >
     <div class="optionsContainer">
-    <p class="option">{{item.option}}</p>
-    <div>
-      <button class="edit-button" (click)="doVote(item.option)">{{item.vote}}</button>
-      <button class="delete-button" (click)="handleOptionDelete(item.option)">delete</button>
+      <p class="option">{{item.option}}</p>
+      <div>
+        <button class="edit-button" (click)="doVote(poll._id, item.option)">{{item.vote}}</button>
+        <button class="delete-button" (click)="handleOptionDelete(poll._id, item.option)">delete</button>
+      </div>
     </div>
   </div>
-  </div>
+
   <button class="addOption" *ngIf="!isAddNewOption; else addoptioncontainer" (click)="handleAddNewOption()">add new option</button>
+
   <ng-template #addoptioncontainer>
-  <div class="addnewoptioncontainer">
-    <input type="text" class="inputField" placeholder="write something here..." (change)="handleChange($event ,'addoption')" />
-    <button class="loginButton" (click)="addNewOption()">Add </button>
-  </div>
+    <div class="addnewoptioncontainer">
+      <input type="text" class="inputField" placeholder="write something here..." (change)="handleChange($event ,'addoption')" />
+      <button class="loginButton" (click)="addNewOption(poll._id)">Add </button>
+    </div>
   </ng-template>
+
 </div>
